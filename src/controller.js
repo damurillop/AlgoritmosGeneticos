@@ -1,17 +1,41 @@
-document.write("MY JS DOCUMENT!");
-var x = "Holla";
-document.write(x);
 
-var img = Image;
+document.write('<pre>')
+document.writeln("<p>MY JS DOCUMENT!</p>");
+
+const img = new Image();
 var src = "https://cors-anywhere.herokuapp.com/https://lorempixel.com/100/100";
 var cvs = document.getElementById('canvas');
-var ctx = cvs.getcontext('2d');
+var ctx = cvs.getContext('2d');
 img.crossOrigin = "Anonymous";
 canvas = [];
 context = [];
 var imgdata;
-var nImgaes = 15;
+var nImages = 15;
 var imageData= [];
+img.src = src;
+
+
+img.onload = function() {
+        //CrearPoblaciónInicial() ;
+        ctx.drawImage( img, 0, 0 );
+        imgData= ctx.getImageData(0,0,100,100) ;
+        table= document.getElementById('table') ;
+        for (var i=0; i<nImages;i++) {
+            if (i%5==0) {
+                row= table.insertRow(table.rows.length) ;
+            }
+            canvas[i]= document.createElement("canvas") ;
+            canvas[i].width= canvas[i].height= "100" ;
+            context[i]= canvas[i].getContext('2d') ;
+            getImage(context[i]) ;
+            //context[i].putImageData(imgData,0,0) ;
+            imageData[i]= context[i].getImageData(0,0,100,100) ;
+            context[i].font = 'italic 10pt Calibri';
+            context[i].fillText(similarity(imgData,imageData[i]),10,95) ;
+            row.appendChild(canvas[i]) ;
+        }
+    }
+
 
 function Figura (tipo, x, y) {
     this.tipo = tipo;
@@ -22,27 +46,5 @@ function Figura (tipo, x, y) {
     }
 }
 
-function CrearIndividuoAleatorio() {
-    var individuo = new Array();
-    for (var i = 0; i < 5; i++){
-        var tipo; 
-        var probTipo = Math.random()*3 + 1;
-        switch (probTipo){
-            case 1:
-                tipo = 'circulo';
-                break;
-            case 2:
-                tipo = 'rectangulo';
-                break;
-            case 3:
-                tipo = 'linea';
-                break;
-        }
-        var x = Math.random()*100;
-        var y = Math.random()*100;
-        individuo[i] = new Figura(tipo, x, y);
-    }
-}
 
-CrearIndividuoAleatorio();
-document.write(individuo[0].tipo);
+

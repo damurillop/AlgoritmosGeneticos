@@ -29,6 +29,25 @@ Repositorio para proyecto de algoritmos geneticos de IA.
 # Elementos:
 
 **Individuo:**
-* Ciruclo: 
-* Rectangulo:
-* 
+los individuos son una imagen que posee figuras de firetenes tamaños, colores y tipos. 
+
+
+Figuras: 
+* Circulo: 
+* Linea:
+* Rectangulos: 
+
+Atributos:
+  * Array de figuras.
+  * Cantidad de figuras:
+  
+  | cantCirculos | cantLineas | cantRectangulos | 
+  |--------------|------------|-----------------|
+
+
+Datos:
+* Cantidad de figuras: 
+  * Circulos: 
+  * Lineas:
+  * Rectangulos: 
+
