@@ -1,16 +1,11 @@
-<H3>Prueba de individuos</H3>
-
-<canvas id="canvas" widtd="100" height="100"></canvas>
-<table id="table"></table>
-<style>canvas {padding:3px ;}</style>
-<script>
+document.write("HELLO WORLD!");
 
 function Figura (tipo, x, y) {
     this.tipo = tipo;
-    this.x = x;
-    this.y = y;
-    this.toString= function(){
-        return "FIGURA: Tipo: "+this.tipo+" [x:"+this.x+" , y:"+this.y+"]";
+    this.x  = x;
+    this.y  = y;
+    this.toString= function() {
+      return "FIGURA: Tipo: "+this.tipo+" [x:"+this.x+" , y:"+this.y+"]";
     }
 }
 
@@ -35,4 +30,16 @@ function CrearIndividuoAleatorio() {
         individuo[i] = new Figure(tipo, x, y);
     }
 }
-</script>
+
+var img = Image;
+var src = "https://cors-anywhere.herokuapp.com/https://lorempixel.com/100/100";
+var cvs = document.getElementById('canvas');
+var ctx = cvs.getcontext('2d');
+img.crossOrigin = "Anonymous";
+canvas = [];
+context = [];
+var imgdata;
+var nImgaes = 15;
+var imageData= [];
+
+document.write(img);
