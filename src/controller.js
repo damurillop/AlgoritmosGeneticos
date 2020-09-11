@@ -1,4 +1,17 @@
-document.write("HELLO WORLD!");
+document.write("MY JS DOCUMENT!");
+var x = "Holla";
+document.write(x);
+
+var img = Image;
+var src = "https://cors-anywhere.herokuapp.com/https://lorempixel.com/100/100";
+var cvs = document.getElementById('canvas');
+var ctx = cvs.getcontext('2d');
+img.crossOrigin = "Anonymous";
+canvas = [];
+context = [];
+var imgdata;
+var nImgaes = 15;
+var imageData= [];
 
 function Figura (tipo, x, y) {
     this.tipo = tipo;
@@ -10,7 +23,7 @@ function Figura (tipo, x, y) {
 }
 
 function CrearIndividuoAleatorio() {
-    var individuo = new Arrya();
+    var individuo = new Array();
     for (var i = 0; i < 5; i++){
         var tipo; 
         var probTipo = Math.random()*3 + 1;
@@ -27,19 +40,9 @@ function CrearIndividuoAleatorio() {
         }
         var x = Math.random()*100;
         var y = Math.random()*100;
-        individuo[i] = new Figure(tipo, x, y);
+        individuo[i] = new Figura(tipo, x, y);
     }
 }
 
-var img = Image;
-var src = "https://cors-anywhere.herokuapp.com/https://lorempixel.com/100/100";
-var cvs = document.getElementById('canvas');
-var ctx = cvs.getcontext('2d');
-img.crossOrigin = "Anonymous";
-canvas = [];
-context = [];
-var imgdata;
-var nImgaes = 15;
-var imageData= [];
-
-document.write(img);
+CrearIndividuoAleatorio();
+document.write(individuo[0].tipo);
