@@ -5,15 +5,16 @@ const LN = 1;
 // Designa el indice de los rectangulos en la matriz de figuras. 
 const REC = 2;
 
+const CANTFIGURES_DEFAULT = [5,5,5];
 
 /* 
 Individuo conformado por una lista de listas de figuras. 
 */ 
 class Individuo {
-  constructor(){
-    this.figuras = getFigures([5,5,5]);
-    this.formImage();
+  constructor(cantFiguras){
+    this.figuras = this.getFigures(cantFiguras);
   }
+
 
   getImageCanvas(){
     canvas = document.createElement("canvas");
@@ -36,7 +37,7 @@ class Individuo {
     El parametro es un array de la cantidad de figuras respectivas 
     para cada tipo de figura. 
   */
-  #getFigures(cantFiguras){
+  getFigures(cantFiguras){
     var figuras = [new Array, new Array, new Array];
     for(var i = 0; i < cantFiguras[CIR]; i++) 
       figuras[CIR][i] = new Circle();
@@ -51,7 +52,7 @@ class Individuo {
     Dibuja las figuras de un individuo en un contexto.
     Modifica: añade a context las figuras del individuo. 
   */
-  #drawFigures(context){
+  drawFigures(context){
     for(circulos of this.figuras[CIR]) 
       circulos[i].draw(context);
     for(lineas of this.figuras[LN])  

@@ -2,18 +2,10 @@
 document.write('<pre>')
 document.writeln("<p>MY JS DOCUMENT!</p>");
 
-function prueba(){
-    this.name = "prueba";
-    this.draw = function(){
-        console.log("ME DIBUJO.");
-    }
-}
-
-var test = new prueba();
-test.draw();
 
 console.log("Generando individuo\n");
-var individuo = new Individuo;
+var individuo = new Individuo(CANTFIGURES_DEFAULT);
+console.log("Individuo generado.");
 for(var i = 0; i < individuo.figuras[CIR].length; ++i){
     console.log(individuo.figuras[CIR][i]);
 }

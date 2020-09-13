@@ -3,7 +3,7 @@ class ambiente{
       this.cantIndividuos = cantIndividuos;
     }
     
-    Similarity(imageData1, imageData2) {
+    getSimilarity(imageData1, imageData2) {
       data1= imageData1.data ;
       data2= imageData2.data ;
       suma=0 ;
@@ -15,7 +15,10 @@ class ambiente{
       return Math.pow(suma,1/2) ;
     }
 
-    PoblacionInicial(){
-      //...
+    getPoblacionInicial(){
+      var poblacion = new Array;
+      for(var i = 0; i < this.cantIndividuos; ++i)
+        poblacion[i] = new Individuo(5, 5, 5);
+      return poblacion; 
     }
 }
