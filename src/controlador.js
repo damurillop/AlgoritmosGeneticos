@@ -2,24 +2,28 @@
 document.write('<pre>')
 document.writeln("<p>MY JS DOCUMENT!</p>");
 
-var individuo = new Individuo(CANTFIGURES_DEFAULT);
-console.log("Individuo generado.");
+
+var padre = new Individuo();
+padre.initFigures([10,10,10]);
+var madre = new Individuo();
+madre.initFigures([15,20,25]);
+var hijo = padre.getCruceV1(madre);
+console.log('Hijo ha sido generado');
+for(tipo of hijo.figuras){
+    console.log(tipo.length);
+}
+
+// console.log("Individuo generado.");
 var ambiente = new Ambiente(10);
 console.log("Ambiente Generado.");
+
+
+
 var generacion = ambiente.getGeneracionInicial();
 console.log("Generacion generada.");
-printImages(generacion);
+var table = document.getElementById('table');
+ambiente.printGeneracion(generacion, table);
 
-function printImages(poblacion){
-    table = document.getElementById('table');
-    for(var i = 0; i < ambiente.cantIndividuos; ++i){
-        if(i%5==0)
-            row= table.insertRow();
-        canvas = poblacion[i].getImageCanvas();
-        console.log(typeof canvas);
-        row.appendChild(canvas);
-    }
-}
 
 
 

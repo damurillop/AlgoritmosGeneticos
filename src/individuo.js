@@ -15,20 +15,19 @@ class Individuo {
     this.figuras = [new Array, new Array, new Array];
   }
 
-
   
   getCruceV1(pareja){
-    var hijo; 
+    var hijo = new Individuo(); 
     for(var tipo = 0; tipo < 3; ++tipo){
       var e = 0;
       for(var i = 0; i < this.figuras[tipo].length/2; ++i){
         hijo.figuras[tipo][e++] = this.figuras[tipo][i];
       }
       for(var i = pareja.figuras[tipo].length/2; i < pareja.figuras[tipo].length; ++i){
-        hijo.guras[tipo][e++] = pareja.figuras[tipo][i];
+        hijo.figuras[tipo][e++] = pareja.figuras[tipo][i];
       }
     }
-    return hijos; 
+    return hijo; 
   }
   
   mute(){
@@ -41,6 +40,14 @@ class Individuo {
     var context = canvas.getContext('2d');
     this.drawFigures(context);
     return canvas;
+  }
+
+  getImageData(){
+    var canvas = document.createElement("canvas");
+    canvas.width= canvas.height= "100" ;
+    var context = canvas.getContext('2d');
+    this.drawFigures(context);
+    return context.getImageData(0,0,100,100);
   }
 
   /*
