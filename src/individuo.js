@@ -13,19 +13,18 @@ Individuo conformado por una lista de listas de figuras.
 class Individuo {
   constructor(){
     this.figuras = [new Array, new Array, new Array];
+    this.fitness = 0;
   }
-
-
   
   getCruceV1(pareja){
     var hijo; 
     for(var tipo = 0; tipo < 3; ++tipo){
       var e = 0;
       for(var i = 0; i < this.figuras[tipo].length/2; ++i){
-        hijo.figuras[tipo][e++] = this.figuras[tipo][i];
+        hijo.figuras[tipo][e++] = Object.assign({},this.figuras[tipo][i]);
       }
       for(var i = pareja.figuras[tipo].length/2; i < pareja.figuras[tipo].length; ++i){
-        hijo.guras[tipo][e++] = pareja.figuras[tipo][i];
+        hijo.guras[tipo][e++] = Object.assign({},pareja.figuras[tipo][i]);
       }
     }
     return hijos; 
@@ -33,6 +32,10 @@ class Individuo {
   
   mute(){
     //..
+  }
+
+  clonar(){
+    return JSON.parse(JSON.stringify(this));
   }
   
   getImageCanvas(){

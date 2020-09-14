@@ -15,12 +15,20 @@ class Ambiente{
       return Math.pow(suma,1/2) ;
     }
 
-    getGeneracionInicial(){
-      var generacion = new Array;
+    getPoblacionInicial(){
+      var poblacion = new Array;
       for(var i = 0; i < this.cantIndividuos; ++i){
-        generacion[i] = new Individuo();
-        generacion[i].initFigures([5, 5, 5]);
+        poblacion[i] = new Individuo();
+        poblacion[i].initFigures([5, 5, 5]);
       }
-      return generacion; 
+      return poblacion; 
+    }
+
+    clonarPoblacion(poblacion){
+      var copia = new Array;
+      for(i in poblacion){
+        copia[i] = JASON.parse(JSON.stringify(poblacion[i]));
+      }
+      return copia;
     }
 }
