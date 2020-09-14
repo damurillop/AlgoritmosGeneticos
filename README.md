@@ -10,10 +10,13 @@ Repositorio para proyecto de algoritmos geneticos de IA.
     Ambiente: funciones que apartir de una generacion, reproducen los individuos para crear una generación nueva más óptima. 
 
 
-# **Objetivo general:** a partir del uso de algoritmos geneticos, crear un programa que cree imagines con figuras y obtenga la imagen que se paresca más a una imagen dada. 
+# Objetivos 
+
+
+**Objetivo general:** a partir del uso de algoritmos geneticos, crear un programa que cree imagines con figuras y obtenga la imagen que se paresca más a una imagen dada. 
     
 
-# **Objetivos específicos del proyecto:**
+**Objetivos específicos del proyecto:**
 * Definir qué es un individuo. 
 * Definir una poblacion de individuos, su tamaño como su estructura. 
 * Definir la fucionalidad de aptitud, considerar mejoras o adaptaciones necesarias. 
@@ -28,9 +31,16 @@ Repositorio para proyecto de algoritmos geneticos de IA.
 
 # Elementos:
 
+
+**Algoritmo:** 
+
+
 **Individuo:**
 los individuos son una imagen que posee figuras de firetenes tamaños, colores y tipos. 
 
+Funciones: 
+* Cruce: cada individuo tiene una función de cruce, donde se le asigna una pareja. La función da como resultado un nuevo individuo con cromosomas de ambos padres. 
+* Mutaciones: algúno de los cromozomas del individuo es mutado, para este caso, se escoge una de las figuras y es cambiada por una nueva con atributos diferentes. 
 
 Figuras: 
 * Circulo: 
@@ -38,16 +48,13 @@ Figuras:
 * Rectangulos: 
 
 Atributos:
-  * Array de figuras.
-  * Cantidad de figuras:
+  * Array de figuras:
   
-  | cantCirculos | cantLineas | cantRectangulos | 
-  |--------------|------------|-----------------|
+  | circulos | lineas | rectangulos | 
+  |----------|--------|-------------|
 
 
 Datos:
-* Cantidad de figuras: 
-  * Circulos: 
-  * Lineas:
-  * Rectangulos: 
+* Cantidad de figuras: la cantidad de figuras es dinamica en cada indiviudo. 
+ 
 

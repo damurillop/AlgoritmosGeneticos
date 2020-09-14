@@ -2,13 +2,25 @@
 document.write('<pre>')
 document.writeln("<p>MY JS DOCUMENT!</p>");
 
-
-console.log("Generando individuo\n");
 var individuo = new Individuo(CANTFIGURES_DEFAULT);
 console.log("Individuo generado.");
-for(var i = 0; i < individuo.figuras[CIR].length; ++i){
-    console.log(individuo.figuras[CIR][i]);
+var ambiente = new Ambiente(10);
+console.log("Ambiente Generado.");
+var generacion = ambiente.getGeneracionInicial();
+console.log("Generacion generada.");
+printImages(generacion);
+
+function printImages(poblacion){
+    table = document.getElementById('table');
+    for(var i = 0; i < ambiente.cantIndividuos; ++i){
+        if(i%5==0)
+            row= table.insertRow();
+        canvas = poblacion[i].getImageCanvas();
+        console.log(typeof canvas);
+        row.appendChild(canvas);
+    }
 }
+
 
 
 // const img = new Image();

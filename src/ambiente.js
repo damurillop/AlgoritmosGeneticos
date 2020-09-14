@@ -1,4 +1,4 @@
-class ambiente{
+class Ambiente{
     constructor(cantIndividuos){
       this.cantIndividuos = cantIndividuos;
     }
@@ -15,10 +15,12 @@ class ambiente{
       return Math.pow(suma,1/2) ;
     }
 
-    getPoblacionInicial(){
-      var poblacion = new Array;
-      for(var i = 0; i < this.cantIndividuos; ++i)
-        poblacion[i] = new Individuo(5, 5, 5);
-      return poblacion; 
+    getGeneracionInicial(){
+      var generacion = new Array;
+      for(var i = 0; i < this.cantIndividuos; ++i){
+        generacion[i] = new Individuo();
+        generacion[i].initFigures([5, 5, 5]);
+      }
+      return generacion; 
     }
 }

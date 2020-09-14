@@ -7,6 +7,7 @@ LOADS AN IMAGE FROM LOREMPIXEL, CREATES RANDOM IMAGES AND ESTIMATES SIMILARITY (
 <table id="table"></table>
 <style>canvas {padding: 3px ;}</style>
 <script>
+  console.log("Starting.");
 function Figura (tipo, x, y) {
     this.tipo = tipo;
     this.x  = x;
@@ -29,8 +30,9 @@ function CrearIndividuoAleatorio() {
   // alert(individuoX.toString());
 }
 
+console.log("Arrived");
 var img = new Image;
-var src = "https://cors-anywhere.herokuapp.com/https://lorempixel.com/100/100";
+var src = "../images/image.jpg";
 var cvs = document.getElementById('canvas');
 var ctx = cvs.getContext('2d');
 img.crossOrigin = "Anonymous";
@@ -42,6 +44,7 @@ var imageData= [] ;
 
 	
 img.onload = function() {
+  console.log("Uploading images.");
 //CrearPoblaciónInicial() ;
     ctx.drawImage( img, 0, 0 );
     imgData= ctx.getImageData(0,0,100,100) ;
@@ -58,6 +61,7 @@ img.onload = function() {
         imageData[i]= context[i].getImageData(0,0,100,100) ;
         context[i].font = 'italic 10pt Calibri';
         context[i].fillText(similarity(imgData,imageData[i]),10,95) ;
+        console.log(typeof canvas[i]);
         row.appendChild(canvas[i]) ;
     }
 }

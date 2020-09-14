@@ -7,7 +7,7 @@ function Circle(){
     this.lineWidth= Math.floor((Math.random() * 5) + 1);
     this.draw = (context) => {
         context.beginPath();
-        context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+        context.arc(this.x1, this.y1, this.radius, 0, 2 * Math.PI, false);
         context.fillStyle = this.fill;
         context.fill();
         context.lineWidth = this.lineWidth;
