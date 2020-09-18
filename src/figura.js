@@ -1,4 +1,4 @@
-function Circle(){
+function Circulo(){
     this.x1= Math.floor((Math.random() * 100) + 1);
     this.y1= Math.floor((Math.random() * 100) + 1);
     this.fill= "#"+Math.floor((Math.random() * 100) + 1)+Math.floor((Math.random() * 100) + 1)+Math.floor((Math.random() * 100) + 1);
@@ -16,7 +16,7 @@ function Circle(){
     }
 }
 
-function Line(x1, y1, fill, stroke, radius, lineWidth){
+function Linea(x1, y1, fill, stroke, radius, lineWidth){
     this.x1= Math.floor((Math.random() * 100) + 1);
     this.x2= Math.floor((Math.random() * 100) + 1);
   	this.y1= Math.floor((Math.random() * 100) + 1);
@@ -34,7 +34,7 @@ function Line(x1, y1, fill, stroke, radius, lineWidth){
     
 }
 
-function Rectangule(){
+function Rectangulo(){
     this.x1= Math.floor((Math.random() * 100) + 1);
     this.x2= Math.floor((Math.random() * 100) + 1);
     this.y1= Math.floor((Math.random() * 100) + 1);

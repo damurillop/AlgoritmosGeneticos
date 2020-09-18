@@ -1,16 +1,18 @@
 class Ambiente{
-    constructor(cantIndividuos){
-      this.cantIndividuos = cantIndividuos;
-      this.imgObjetivo = new Image();
-      this.imgObjetivo.src = '../images/image.jpg';//'https://cors-anywhere.herokuapp.com/https://lorempixel.com/100/100';
+    /* 
+     Se da como parametro el tamaño de la poblacion. 
+     */
+    constructor(cantidadIndividuos){
+      this.cantidadIndividuos = cantidadIndividuos;
+      this.imgObjetivo = document.getElementById('imgObj');
       this.imgObjetivo.crossOrigin = 'Anonymous';
       this.imageData = this.getImageData();
-      document.body.appendChild(this.imgObjetivo);
     }
 
-    
+    /* 
+      Obtiene la similitud de la imegen con respecto a la imagen objetivo.
+     */    
     getSimilarity(individuo) {
-      console.log(typeof this.imageData);
       const data1 = this.imageData.data;
       const data2 = individuo.getImageData().data;
       var suma=0;
@@ -22,36 +24,47 @@ class Ambiente{
       return Math.pow(suma,1/2) ;
     }
 
+    /* 
+      Brinda un poblacion con individuos aleatorios. 
+     */
     getPoblacionInicial(){
       var poblacion = new Array;
-      for(var i = 0; i < this.cantIndividuos; ++i){
+      for(var i = 0; i < this.cantidadIndividuos; ++i){
         poblacion[i] = new Individuo();
         poblacion[i].initFigures([5, 5, 5]);
       }
       return poblacion; 
     }
 
+    /* 
+      Colna toda una poblacion actual, devolviendo una nueva igual. Deep copying. 
+     */
     clonarPoblacion(poblacion){
       var copia = new Array;
-      for(i in poblacion){
-        copia[i] = JASON.parse(JSON.stringify(poblacion[i]));
+      for(var individuo in poblacion){
+        copia[individuo] = poblacion[individuo].clonar();
       }
       return copia;
     }
 
-    printGeneracion(generacion, table){
-      for(var i = 0; i < this.cantIndividuos; ++i){
-          if(i%5==0)
-            var row= table.insertRow();
-      var canvas = generacion[i].getImageCanvas();
-      var context = canvas.getContext('2d');
-      context.font = 'italic 10pt Calibri';
-      context.fillText(this.getSimilarity(generacion[i]), 10, 95);
-      console.log(typeof canvas);
-      row.appendChild(canvas);
+    /* 
+      Imprimera las imagenes de cada individuo en una tabla dada. 
+     */
+    printPoblacion(generacion, table){
+      for(var i = 0; i < this.cantidadIndividuos && i < 100; ++i){
+            if(i%5==0)
+              var row= table.insertRow();
+        var canvas = generacion[i].getImageCanvas();
+        var context = canvas.getContext('2d');
+        context.font = 'italic 14pt Calibri';
+        context.fillText(this.getSimilarity(generacion[i]), 10, 95);
+        row.appendChild(canvas);
       }
     }
 
+    /* 
+      Obtiene los datos del bipmap de la imagen objetivo. 
+     */
     getImageData(){
       var canvas = document.getElementById('canvas');
       canvas.with = canvas.height = "100";
