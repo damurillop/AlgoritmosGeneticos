@@ -1,4 +1,5 @@
 # AlgoritmosGeneticos
+
 Repositorio para proyecto de algoritmos geneticos de IA.
 
 **Definiciones:** 
@@ -7,7 +8,9 @@ Repositorio para proyecto de algoritmos geneticos de IA.
 
     Poblacion: conjunto de individuos. 
 
-    Ambiente: funciones que apartir de una generacion, reproducen los individuos para crear una generación nueva más óptima. 
+    Ambiente: generador de la población y calculador de la función fitness. 
+
+    Algoritmo: funciones que apartir de una generacion, reproducen los individuos para crear una generación nueva más óptima. 
 
 
 # Objetivos 
@@ -31,8 +34,7 @@ Repositorio para proyecto de algoritmos geneticos de IA.
 
 # Elementos:
 
-
-**Algoritmo:** 
+**Controlador:** se encargar de unir todas las clases y correr el algoritmo, acá se asignan los valores con los que el algoritmo correrá. 
 
 
 **Individuo:**
@@ -43,9 +45,9 @@ Funciones:
 * Mutaciones: algúno de los cromozomas del individuo es mutado, para este caso, se escoge una de las figuras y es cambiada por una nueva con atributos diferentes. 
 
 Figuras: 
-* Circulo: 
-* Linea:
-* Rectangulos: 
+* Circulo 
+* Linea
+* Rectangulos 
 
 Atributos:
   * Array de figuras:
@@ -56,5 +58,29 @@ Atributos:
 
 Datos:
 * Cantidad de figuras: la cantidad de figuras es dinamica en cada indiviudo. 
+* Mute: se selecciona una figura al azar y es cambiada por una nueva.
+* Cruzar: a partir de una pareja, crea un nuevo individuo con genes de ambos.
+
+
+**Ambiente:**
+Al construirlo, debemos indicarle la cantidad de individuos que tendra cada generacion. El ambiente se encarga de los siguiente:
+
+* Dar la poblacion inicial de individuos.
+* Calcular la aptitud de cada individuo respecto a una imagen. 
+* Clonar poblaciones e imprimirlas. 
+
+**Algoritmo** 
+El algoritmo debemos darle un ambiente sobre el cual trabajar, este se encarga de evolucionar a una poblacion dada. Se le debe indicar la cantidad de generaciones, probablidad de cruce, probabilidad de mutacion. 
+
+Las funciones de la clase algoritmo son: 
+
+* Seleccionar: se utiliza selección por torneo. Se seleccionan dos parejas de individuos de la población, de esas dos parejas se selecciona el más apto, y de los dos resultantes, se selecciona el más apto. 
+
+* Mutar: todo individuo resultante de un cruce se pasa por la prueba de mutación, si entra el la probabildad, es mutado. 
  
+ # Qué no se logró: 
+
+ * Después de cierta cantidad de generaciones, la población se estanca en una sola combinación de figuras. 
+
+ * La población resultante es poco parecida al objetivo. 
 

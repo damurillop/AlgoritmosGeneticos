@@ -31,7 +31,7 @@ class Ambiente{
       var poblacion = new Array;
       for(var i = 0; i < this.cantidadIndividuos; ++i){
         poblacion[i] = new Individuo();
-        poblacion[i].initFigures([5, 5, 5]);
+        poblacion[i].initFigures([Math.floor(Math.random() * 10) + 5, Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + 5, 5]);
       }
       return poblacion; 
     }
@@ -51,7 +51,7 @@ class Ambiente{
       Imprimera las imagenes de cada individuo en una tabla dada. 
      */
     printPoblacion(generacion, table){
-      for(var i = 0; i < this.cantidadIndividuos && i < 100; ++i){
+      for(var i = 0; i < this.cantidadIndividuos && i < 50; ++i){
             if(i%5==0)
               var row= table.insertRow();
         var canvas = generacion[i].getImageCanvas();

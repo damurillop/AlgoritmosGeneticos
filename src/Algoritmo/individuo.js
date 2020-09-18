@@ -5,7 +5,6 @@ const LINEA = 1;
 // Designa el indice de los rectangulos en la matriz de figuras. 
 const RECTANGULO = 2;
 
-const CANTFIGURES_DEFAULT = [5,5,5];
 
 /* 
 Individuo conformado por una lista de listas de figuras. 
@@ -44,15 +43,15 @@ class Individuo {
     var tipo = Math.floor(Math.random *3);
     switch(tipo){
       case 0:
-        var figura = Math.floor(Math.random * this.figuras[0].length);
+        var figura = Math.floor(Math.random() * this.figuras[0].length);
         this.figuras[tipo][figura] = new Circulo();
       break;
       case 1:
-        var figura = Math.floor(Math.random * this.figuras[1].length);
+        var figura = Math.floor(Math.random() * this.figuras[1].length);
         this.figuras[tipo][figura] = new Linea();
       break;
       case 2:
-        var figura = Math.floor(Math.random * this.figuras[3].length);
+        var figura = Math.floor(Math.random() * this.figuras[3].length);
         this.figuras[tipo][figura] = new Rectangulo();
       break;
     }
